@@ -3,6 +3,8 @@ require 'support/utilities'
 
 describe "Static pages" do
   
+  
+  
   subject { page }
   
   describe "Home page" do
@@ -14,21 +16,30 @@ describe "Static pages" do
   end
 
   describe "Help page" do
-    before { visit help_path }
+    before do
+      visit help_path
+      click_link "Help"
+    end
 
     it { should have_selector('h1',    text: 'Help') }
     it { should have_selector('title', text: full_title('Help')) }
   end
 
   describe "About page" do
-    before { visit about_path }
+    before do
+      visit about_path
+      click_link "About"
+    end
 
     it { should have_selector('h1',    text: 'About') }
     it { should have_selector('title', text: full_title('About Us')) }
   end
 
   describe "Contact page" do
-    before { visit contact_path }
+    before do
+      visit contact_path
+      click_link "Contact"
+    end
 
     it { should have_selector('h1',    text: 'Contact') }
     it { should have_selector('title', text: full_title('Contact')) }
